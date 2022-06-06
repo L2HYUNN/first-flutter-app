@@ -26,11 +26,14 @@ class MyApp extends StatelessWidget {
               child: const Text("Answer 1"),
             ),
             RaisedButton(
-              onPressed: answerQuestion,
+              onPressed: () => print("Answer Two"),
               child: const Text("Answer 2"),
             ),
             RaisedButton(
-              onPressed: answerQuestion,
+              onPressed: () {
+                print("Answer Three");
+                print("Answer More");
+              },
               child: const Text("Answer 3"),
             ),
           ],
