@@ -24,19 +24,19 @@ class _MyAppState extends State<MyApp> {
       "answer": [
         {
           "text": "Black",
-          "scroe": 10,
+          "score": 10,
         },
         {
           "text": "Red",
-          "scroe": 5,
+          "score": 5,
         },
         {
           "text": "Green",
-          "scroe": 3,
+          "score": 3,
         },
         {
           "text": "White",
-          "scroe": 1,
+          "score": 1,
         },
       ]
     },
@@ -113,7 +113,7 @@ class _MyAppState extends State<MyApp> {
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
               )
-            : Result(),
+            : Result(_totalScore),
       ),
     );
   }
