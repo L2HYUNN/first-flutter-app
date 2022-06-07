@@ -33,11 +33,15 @@ class _MyAppState extends State<MyApp> {
     },
   ];
   var _questionIndex = 0;
+
   void _answerQuestion() {
+    setState(() {
+      _questionIndex += 1;
+    });
     if (_questionIndex < questions.length) {
-      setState(() {
-        _questionIndex += 1;
-      });
+      print("we have more questions!");
+    } else {
+      print("No more questions!");
     }
   }
 
@@ -48,17 +52,21 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text("My First App"),
         ),
-        body: Column(
-          children: [
-            Question(
-              questions[_questionIndex]["questionText"] as String,
-            ),
-            ...(questions[_questionIndex]["answer"] as List<String>)
-                .map((answer) {
-              return Answer(_answerQuestion, answer);
-            }).toList()
-          ],
-        ),
+        body: _questionIndex < questions.length
+            ? Column(
+                children: [
+                  Question(
+                    questions[_questionIndex]["questionText"] as String,
+                  ),
+                  ...(questions[_questionIndex]["answer"] as List<String>)
+                      .map((answer) {
+                    return Answer(_answerQuestion, answer);
+                  }).toList()
+                ],
+              )
+            : const Center(
+                child: Text("You did it!"),
+              ),
       ),
     );
   }
